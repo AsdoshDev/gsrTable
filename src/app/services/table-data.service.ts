@@ -622,8 +622,22 @@ data =
   {"bnbp":"ewrewr"}]
  } 
 
- 
- 
+account = {
+ "id": "10291287",
+ "name": "Ervin Howell",
+ "username": "Antonette",
+ "amount"  : "600,000,000",
+ "email": "Shanna@melissa.tv",
+ "phone": "493-170-9623 x156",
+ "website": "kale.biz",
+ "street": "Hoeger Mall",
+ "suite": "Apt. 692",
+ "city": "South Elvis",
+ "zipcode": "53919-4257",
+ "catchPhrase": "Multi-tiered zero tolerance productivity",
+ "bs": "transition cutting-edge web services"
+}
+
   rooturl:string = "https://jsonplaceholder.typicode.com/users";
 
   config:any;
@@ -633,5 +647,10 @@ data =
   getUsers(){
     return this.data;
   } 
+
+  getAccount(){
+    return this.account;
+  } 
+
 } 
  

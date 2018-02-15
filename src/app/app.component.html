@@ -43,7 +43,7 @@
       <div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columns; let in = index">
         <input *ngIf="column.inputType==='text'"  class="filterInput" #textVar (keyup)="filterColumn(column,textVar.value)"  type="text"/>
         <input *ngIf="column.inputType==='date'" class="filterInput"  (change)="filterColumn(column,$event.target.value)"  type="date"/>
-        <select class="filterInput" *ngIf="column.inputType==='dropdown'" (change)="filterColumn(column,$event.target.value)"><option value=""></option><option *ngFor="let value of column.dropdownValues" value="{{value}}">{{value}}</option></select>
+        <select class="filterInput" *ngIf="column.inputType==='dropdown'" (change)="filterColumn(column,$event.target.value)"><option value= "">Show All</option><option *ngFor="let value of column.dropdownValues" value="{{value}}">{{value}}</option></select>
       </div>
     </div>
   </div>  
@@ -68,4 +68,4 @@
 </div>
 
 
-<gsr-modal *ngIf="showModal"></gsr-modal>
+<gsr-modal *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>

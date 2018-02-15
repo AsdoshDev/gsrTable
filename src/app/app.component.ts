@@ -3,33 +3,10 @@ import { TableDataService } from './services/table-data.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/of';
-
-//import {NgForm} from '@angular/forms';
-
 import { FormsModule } from '@angular/forms';
-
-
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { UserFilterPipe } from './pipes/user-filter.pipe';
 import { ModalComponent } from './components/modal/modal.component';
-//import {TabMenuModule} from 'primeng/tabmenu';
-
-
-
-
-// import { PipeTransform, Pipe } from '@angular/core';
-
-// @Pipe({name: 'keys'})
-// export class KeysPipe implements PipeTransform {
-//   transform(value, args:string[]) : any {
-//     let keys = [];
-//     for (let key in value) {
-//       keys.push(key);
-//     }
-//     return keys;
-//   }
-// }
-
 
 @Component({
   selector: 'app-root',
@@ -45,13 +22,17 @@ export class AppComponent {
   icData:any;
   originalUsers: any;
   showFilter: boolean;
-  showModal: boolean = false;
+  public showModal = false;
   openModal() {
     this.showModal = !this.showModal;
   }
 
   onCloseHandled() {
     this.showModal = !this.showModal;
+  }
+
+  getValue(val){
+    this.showModal = val;
   }
   columns = [
     // { attrName: "", colName: "", accordion: 'false', inputType: "text", },
@@ -85,7 +66,6 @@ export class AppComponent {
     // }
     let a = this.data.getUsers();
     this.icData = a;
-debugger;
     this.users = this.originalUsers = a.companies[0]["shares"];
     
   }

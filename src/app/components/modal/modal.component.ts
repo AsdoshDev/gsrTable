@@ -1,28 +1,38 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
-
+import { EventEmitter } from '@angular/core';
+import { TableDataService } from '../../services/table-data.service';
 @Component({
   selector: 'gsr-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+account = {};
+  constructor(private data:TableDataService ) { }
 
-  constructor() { }
-
-   @Input() showModal:boolean;
-// @Output() childEvent:boolean;
+   @Input() showModal:any;
+  @Output() sendValue = new EventEmitter();
+ 
   ngOnInit() {
-
+    this.account = this.data.getAccount();
   }
 
  
+  generateArray(obj) {
 
- // childEvent = new EventEmitter<boolean>();
+    let bla = Object.keys(obj).map((key) => {
+
+      return {
+        key: key, value: obj[key]
+      }
+    });
+    console.log(bla);
+    return bla;
+  }
+
   onCloseHandled(){
     this.showModal = !this.showModal;
-    alert("ewf");
-   // this.childEvent.emit(this.showModal);
+    this.sendValue.emit(this.showModal);  
   }
 
 
