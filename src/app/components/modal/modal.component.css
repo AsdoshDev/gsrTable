@@ -85,6 +85,11 @@ body, html {
 }
 
 
+.print-option{
+	cursor: pointer;
+	float:right;
+}
+
 .gsr-modal-close:hover { background: rgb(3, 4, 100); }
 
 .gsr-modal-content{

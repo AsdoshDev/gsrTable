@@ -1,19 +1,12 @@
-
-
   <div class="backdrop" ></div>
-  
-  
   <div class="gsr-modal-container">
     <div class="gsr-modal-dialog">
-      <div class="gsr-modal-title">ACCOUNT DETAILS</div>
+      <div class="gsr-modal-title">ACCOUNT DETAILS <span class="gsr-link print-option" >Print</span></div>
       <div class="gsr-modal-content">
           <div class="columnWrapper" *ngFor="let item of generateArray(account)">
             <div class="gsr-modal-content-column column-label">{{item.key}}</div><div class="gsr-modal-content-column"> {{item.value}}</div>
           </div>
     </div>
-  
-  
-  
     </div>
     <div class="gsr-modal-close" aria-label="Close" (click)="onCloseHandled()"><i class="material-icons">close</i></div>
   </div>
