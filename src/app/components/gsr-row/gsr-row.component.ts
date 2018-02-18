@@ -18,6 +18,7 @@ export class GsrRowComponent implements OnInit {
   openModal() {
     this.showModal = !this.showModal;
     this.account = this.data.getAccount();
+    this.account.title = "ACCOUNT DETAILS";
   }
 
   onCloseHandled() {
