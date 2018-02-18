@@ -1,0 +1,26 @@
+
+
+<div class="gsr-table" *ngIf="dataObj">
+    <gsr-table-header [dataObj] = "dataObj" (sendValue)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
+    <div class="gsr-table-scroller">
+
+        <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+
+        <div *ngIf="columnHeaderInfo.level == 1 || columnHeaderInfo.level == 3">
+        <div class="gsr-row gsr-accordionHeader">
+            <div  class="gsr-column"><span (click) = "changeTable()" class="iconStyle collapse"></span><span>{{dataObj.companies[0].company}}</span></div>
+        </div>
+        </div> 
+        <div *ngIf="columnHeaderInfo.level == 2">
+            <div class="gsr-row gsr-accordionHeader">
+                <div  class="gsr-column"><span class="iconStyle collapse"></span><span>{{dataObj.companies[0].company}}</span></div>
+            </div>
+            <div class="gsr-row gsr-accordionHeader">
+                <div  class="gsr-column"><span class="iconStyle collapse"></span><span>{{dataObj.companies[0].company}}</span></div>
+            </div>
+        </div> 
+
+
+        <gsr-row class="gsr-row"  *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+    </div>
+</div>

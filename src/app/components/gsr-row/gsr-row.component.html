@@ -1,0 +1,11 @@
+<div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columns" >
+      <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
+      <span class="searchIcon" (click) = "openModal()" *ngIf="column.searchIcon"><i class="material-icons md-18">search</i></span>
+      <span class="iconStyle expand" *ngIf="column.accordion"></span>
+</div>
+
+<gsr-modal  [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
+
+
+
+

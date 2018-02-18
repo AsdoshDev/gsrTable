@@ -31,7 +31,6 @@ body, html {
 }
 
   .gsr-modal-container {
-	height:100%;
 	position: relative;
 	border:1px solid #999;
 	margin: auto;
@@ -39,13 +38,6 @@ body, html {
 	max-height:600px;
 	background-color:#eee;
 	padding:10px;
-	/*
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	*/
   }
   
   .gsr-modal-dialog {
@@ -76,8 +68,8 @@ body, html {
 
 .columnWrapper{
 	display: flex;
-	width:45%;
-	flex-grow:1;
+	width:50%;
+	
 }
 
 .column-label{
@@ -105,6 +97,11 @@ body, html {
 	border: 1px solid #dcdcdc;
     padding: 5px;
 
+}
+
+.gsr-modal-close .material-icons{
+	position: relative;
+	top:2px;
 }
 
 /* 

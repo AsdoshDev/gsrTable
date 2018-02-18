@@ -3,8 +3,8 @@
     <div class="gsr-modal-dialog">
       <div class="gsr-modal-title">ACCOUNT DETAILS <span class="gsr-link print-option" >Print</span></div>
       <div class="gsr-modal-content">
-          <div class="columnWrapper" *ngFor="let item of generateArray(account)">
-            <div class="gsr-modal-content-column column-label">{{item.key}}</div><div class="gsr-modal-content-column"> {{item.value}}</div>
+          <div class="columnWrapper" *ngFor="let rec of generateArray(account)">
+            <div class="gsr-modal-content-column column-label">{{rec.key}}</div><div class="gsr-modal-content-column"> {{rec.value}}</div>
           </div>
     </div>
     </div>

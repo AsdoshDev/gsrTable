@@ -1,20 +1,21 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TableDataService } from '../../services/table-data.service';
+
 @Component({
   selector: 'gsr-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-account = {};
-  constructor(private data:TableDataService ) { }
 
-   @Input() showModal:any;
+  constructor() { }
+
+  @Input() account:any; 
+  @Input() showModal:any;
   @Output() sendValue = new EventEmitter();
  
   ngOnInit() {
-    this.account = this.data.getAccount();
+
   }
 
  
@@ -26,7 +27,7 @@ account = {};
         key: key, value: obj[key]
       }
     });
-    console.log(bla);
+    
     return bla;
   }
 
