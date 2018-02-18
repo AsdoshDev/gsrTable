@@ -4,8 +4,8 @@
   
     <div class="gsr-row filter" *ngIf="showFilter">
       <div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columns; let in = index">
-        <input *ngIf="column.inputType==='text'" [(ngModel)]= "column.filterValue"  class="filterInput" type="text"/>
-        <input *ngIf="column.inputType==='date'" [(ngModel)]= "column.filterValue" class="filterInput" type="date"/>
+        <input *ngIf="column.inputType==='text'"  [(ngModel)]= "column.filterValue"  class="filterInput" type="text"/>
+        <input *ngIf="column.inputType==='date'"  [(ngModel)]= "column.filterValue" class="filterInput" type="date"/>
         <select class="filterInput" *ngIf="column.inputType==='dropdown'" [(ngModel)]= "column.filterValue"><option value= "">Show All</option><option *ngFor="let value of column.dropdownValues" value="{{value}}">{{value}}</option></select>
       </div>
     </div>

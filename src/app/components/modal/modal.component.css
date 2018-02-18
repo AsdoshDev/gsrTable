@@ -94,7 +94,7 @@ body, html {
 .gsr-modal-content-column{
 	flex-grow:1;
 	width:0;
-	border: 1px solid #dcdcdc;
+	/* border: 1px solid #dcdcdc; */
     padding: 5px;
 
 }
@@ -127,5 +127,12 @@ body, html {
 
 
 
+.columnWrapper:nth-child(4n+1),.columnWrapper:nth-child(4n+2) {
+	background-color: #f7f7f7;
+  }
+
+  .columnWrapper:nth-child(4n+3),.columnWrapper:nth-child(4n+4) {
+	background-color: white;
+  }
 
 

@@ -6,6 +6,8 @@ import 'rxjs/add/observable/of';
 import { FormsModule } from '@angular/forms';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ModalComponent } from './components/modal/modal.component';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -30,16 +32,30 @@ export class AppComponent {
     {attrName:"test4",colName:"Website",filterBy:'string'},
     {attrName:"test5",colName:"Website",filterBy:'string'},
   ]};
-  // columnHeaderInfo1 =  {'needFilter' : false,'columnHeaders' : [
-  //   { attrName: "id", colName: "Firm"}
-
-  // ]};
   log(val) { console.log(val); }
 
 
   changeInfo(){
-    this.columnHeaderInfo = {'needFilter' : true, 'level' : 2,'columnHeaders' : [
-      { attrName: "id", colName: "hello No", filterBy: 'string', inputType: "text",filterValue:"" }]};
+    // alert("werewr");
+    // this.columnHeaderInfo = {'needFilter' : true, 'level' : 3,'columnHeaders' : [
+    //   { attrName: "cusip", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
+    //   { attrName: "SELDO", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "IRED", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "ALSK", colName: "Email", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "YUT", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
+    //   { attrName: "POEU", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "MNBE", colName: "Amount", filterBy: 'number', inputType: "text",filterValue:"" },
+    //   { attrName: "cusip", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
+    //   { attrName: "SELDO", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "IRED", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "ALSK", colName: "Email", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "YUT", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
+    //   { attrName: "POEU", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
+    //   { attrName: "MNBE", colName: "Amount", filterBy: 'number', inputType: "text",filterValue:"" },
+    // ]};
+
+    // this.icData = this.data.getUsers();
+    // this.cd.detectChanges();
   }
 
   ngOnInit() {
@@ -55,7 +71,8 @@ export class AppComponent {
     
   }
 
-  constructor(private data: TableDataService) {
+  constructor(private data: TableDataService,private cd: ChangeDetectorRef) {
+    //this.cd.detach();
   }
 
 

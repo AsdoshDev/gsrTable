@@ -1,14 +1,27 @@
 
 
 <div class="gsr-table" *ngIf="dataObj">
-    <gsr-table-header [dataObj] = "dataObj" (sendValue)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
+    <!-- <gsr-table-header [dataObj] = "dataObj" (sendValue)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header> -->
+
+
+    <div class="gsr-row dynamicHeader">
+            <div class="gsr-column">{{dataObj.id}} -> {{dataObj.companies[0].company}}</div> 
+            <div class="gsr-column headerOptions">
+              <span class="gsr-link" *ngIf="columnHeaderInfo.needFilter && !showFilter" (click) = "toggleFilterColumn()">Filter</span>
+              <span class="gsr-link" *ngIf="showFilter" (click) = "filterColumn()">Apply</span>
+              <span class="gsr-link" *ngIf="showFilter" (click) = "clearInputValues()">Clear</span>
+              <span class="gsr-link" *ngIf="showFilter" (click) = "toggleFilterColumn()">Close</span>
+            </div> 
+     </div>
+        
+
     <div class="gsr-table-scroller">
 
         <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
 
         <div *ngIf="columnHeaderInfo.level == 1 || columnHeaderInfo.level == 3">
         <div class="gsr-row gsr-accordionHeader">
-            <div  class="gsr-column"><span (click) = "changeTable()" class="iconStyle collapse"></span><span>{{dataObj.companies[0].company}}</span></div>
+            <div  class="gsr-column"><span class="iconStyle collapse"></span><span>{{dataObj.companies[0].company}}</span></div>
         </div>
         </div> 
         <div *ngIf="columnHeaderInfo.level == 2">
@@ -21,6 +34,7 @@
         </div> 
 
 
-        <gsr-row class="gsr-row"  *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+        <gsr-row class="gsr-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+        <div *ngIf="records.length==0" class="noResults">No records found</div>
     </div>
 </div>
