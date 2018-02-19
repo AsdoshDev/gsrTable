@@ -1,5 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'gsr-table',
   templateUrl: './gsr-table.component.html',
@@ -9,15 +11,25 @@ export class GsrTableComponent implements OnInit {
   
   @Input() dataObj;
   @Input() columnHeaderInfo; //array of objects
+  @Output() sendLevel = new EventEmitter();
   records:any;
   originalRecords:any;
   showFilter: boolean;
   columns:any;
+  recIndex:any;
+  tableLevel : any;
   constructor(private cd:ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.records = this.originalRecords = this.dataObj.companies[0]["shares"];
+    debugger;
     this.columns = this.columnHeaderInfo['columnHeaders'];
+    this.recIndex = this.columnHeaderInfo['index'];
+    this.tableLevel = this.columnHeaderInfo['level'];
+    if(this.tableLevel == 1)
+      this.records = this.originalRecords = this.dataObj.details;
+      else  if(this.tableLevel == 3)
+      this.records = this.originalRecords = this.dataObj.companies[this.recIndex]["records"];
+ 
   }
 
 
@@ -60,13 +72,25 @@ export class GsrTableComponent implements OnInit {
 
    /* FUNCTIONS FOR GSR-TABLE-HEADER ENDS HERE */
 
+  changeTable(level,index){
+    // debugger;
+    // if(index !== undefined && index !== ""){
+    //   this.recIndex = index;
+    //   this.records = this.originalRecords = this.dataObj.companies[this.recIndex]["records"];
+    // }
+    
+    // let levelVar;
+    // if(index === undefined)
+    //     levelVar = (level !== 1) ? (level-1) : (level+1);
+    // else
+    //     levelVar = 3;
+    if(this.showFilter)
+       this.showFilter = !this.showFilter;
 
-  changeTable(){
-    this.columnHeaderInfo = {'needFilter' : true, 'level' : 3,'columnHeaders' : [
-      { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
-      { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
-      { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
-    ]};
-  }
-
+    let a ={};
+    a['level'] = level;
+    a['index'] = index;
+    this.sendLevel.emit(a);  
+        
+}
 }

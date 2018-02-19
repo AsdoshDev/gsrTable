@@ -16,13 +16,19 @@ export class ColumnHeaderComponent implements OnInit {
   records:any[]; //if records:[] is given, for some reason , typescript thinks its tuple and not an array, then any[] is given.
   originalRecords:any[];
   columns:any;
-
+  recIndex:any;
   ngOnInit() {
-    this.records = this.originalRecords = this.dataObj.companies[0]["shares"];
+    debugger;
     this.columns = this.columnHeaderInfo['columnHeaders'];
+    this.recIndex = this.columnHeaderInfo['index'];
+    if(this.columnHeaderInfo.level == 1)
+     this.records = this.originalRecords = this.dataObj.details;
+    else  if(this.columnHeaderInfo.level == 3)
+      this.records = this.originalRecords = this.dataObj.companies[this.recIndex]["records"];
   }
 
     filterColumn() {
+      debugger; 
     this.records = this.originalRecords;
     let filterColumn = [];
    // this.cdr.detectChanges();
@@ -49,7 +55,7 @@ export class ColumnHeaderComponent implements OnInit {
   sortColumn(column) {
     if (column.isAscending !== undefined) {
       column.isAscending = !column.isAscending;
-  
+    
     }
     else {
       column.isAscending = false;

@@ -1,1 +1,3 @@
-<gsr-table [dataObj] = "icData" (click) = "changeInfo()" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+<gsr-table *ngIf="columnHeaderInfo.level === 1" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+<gsr-table *ngIf="columnHeaderInfo.level === 2" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+<gsr-table *ngIf="columnHeaderInfo.level === 3" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
