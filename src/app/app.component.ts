@@ -27,10 +27,10 @@ export class AppComponent {
     { attrName: "phone", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
     { attrName: "website", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "amount", colName: "Amount", filterBy: 'number', inputType: "text",filterValue:"" },
-    {attrName:"test2",colName:"Website",filterBy:'string'},
-    {attrName:"test3",colName:"Website",filterBy:'string'},
-    {attrName:"test4",colName:"Website",filterBy:'string'},
-    {attrName:"test5",colName:"Website",filterBy:'string'},
+    {attrName:"test2",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test3",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test4",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test5",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
   ]};
   log(val) { console.log(val); }
 

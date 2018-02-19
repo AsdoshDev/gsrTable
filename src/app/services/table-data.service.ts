@@ -9,7 +9,7 @@ data =
    id : "CUSIP",
    "companies" : [{"company":"CG-MARKETING", "shares" : [
     {
-      "id": "02/01/2018",
+      "id": "10291287",
       "name": "Martin Graham",
       "username": "Bret",
       "email": "Sincere@april.biz",
@@ -780,7 +780,7 @@ data =
 } 
 
 
-account = {
+account = {type:'Account Details', details : {
  "id": "10291287",
  "name": "Ervin Howell",
  "username": "Antonette",
@@ -795,7 +795,7 @@ account = {
  "catchPhrase": "Multi-tiered zero tolerance productivity",
  "bs": "transition cutting-edge web services",
  "blockchain" : "propels java"
-}
+}}
 
   rooturl:string = "https://jsonplaceholder.typicode.com/users";
 
