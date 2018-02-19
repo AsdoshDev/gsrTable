@@ -57,6 +57,7 @@
     word-wrap: break-word;
     padding: 5px;
     flex-shrink:0;
+    box-sizing:border-box;
   }
   
   .arrow-up {
