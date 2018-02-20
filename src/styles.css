@@ -35,8 +35,9 @@
   }
 
 
-  .gsr-row:nth-child(odd) {
+  .gsr-record-row:nth-child(odd) {
     background-color: rgb(247, 247, 247);
+        
   }
   
   .gsr-row.dynamicHeader {
@@ -109,6 +110,7 @@
   .gsr-accordionHeader {
     padding: 5px 5px;
     width:100%;
+    /* border:1px solid #e4e4e4; */
   }
   
   .iconStyle {

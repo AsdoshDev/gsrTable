@@ -43,7 +43,7 @@
             <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level)">
                  <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj.companies[recIndex].company}}</span></div>
             </div>
-            <gsr-row class="gsr-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+            <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
             <div *ngIf="records.length==0" class="noResults">No records found</div>
         </div> 
 
