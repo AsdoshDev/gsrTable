@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class TableDataService{
 
  
-  columnHeaderInfoLevel3 = {'needFilter' : true,'needPrint' : true, 'level' : 3, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel3 = {'needFilter' : true,'needPrint' : true, levelDecider : true,'level' : 3, 'index':0,'columnHeaders' : [
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -20,11 +20,11 @@ export class TableDataService{
     {attrName:"test5",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
   ]};
 
-  columnHeaderInfoLevel2 =  {'needFilter' : false,'needPrint' : false, 'level' : 2, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel2 =  {'needFilter' : false,'needPrint' : false, levelDecider : true,'level' : 2, 'index':0,'columnHeaders' : [
     { attrName: "firm", colName: "Firm" },
   ]};
 
-  columnHeaderInfoLevel1 =  {'needFilter' : false,'needPrint' : true, 'level' : 1, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel1 =  {'needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0,'columnHeaders' : [
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true',accordion: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},
@@ -137,7 +137,7 @@ dataLevel3 =
         }
       },
       "phone": "1-770-736-8031 x56442",
-      "website": "hildegard.org",
+      "website": "materti.org",
       "company": {
         "name": "Romaguera-Crona",
         "catchPhrase": "Multi-layered client-server neural-net",

@@ -27,7 +27,6 @@ export class GsrRowComponent implements OnInit {
 
 
   ngOnInit() {
-    debugger;
     this.columns = this.columnHeaderInfo['columnHeaders'];
   }
 }

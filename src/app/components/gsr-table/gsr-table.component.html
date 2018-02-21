@@ -1,30 +1,10 @@
-
-
 <div class="gsr-table" *ngIf="dataObj">
-    <!-- <gsr-table-header [dataObj] = "dataObj" (sendValue)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header> -->
-
-
-    <div class="gsr-row dynamicHeader">
-            <div class="gsr-column" *ngIf="columnHeaderInfo.level == 1"></div> 
-            <div class="gsr-column" *ngIf="columnHeaderInfo.level == 2">{{dataObj.id}} -></div> 
-            <div class="gsr-column" *ngIf="columnHeaderInfo.level == 3">{{dataObj.id}} -> {{dataObj.companies[recIndex].company}}</div> 
-            <div class="gsr-column headerOptions">
-              <span class="gsr-link" *ngIf="columnHeaderInfo.needFilter && !showFilter" (click) = "toggleFilterColumn()">Filter</span>
-              <span class="gsr-link" *ngIf="showFilter" (click) = "filterColumn()">Apply</span>
-              <span class="gsr-link" *ngIf="showFilter" (click) = "clearInputValues()">Clear</span>
-              <span class="gsr-link" *ngIf="showFilter" (click) = "toggleFilterColumn()">Close</span>
-              <span class="gsr-link" *ngIf="columnHeaderInfo.needPrint">Print</span>
-            </div> 
-     </div>
-        
-
+    <gsr-table-header [dataObj] = "dataObj" (sendFilterRecords) = "records=$event" (sendFilter)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
+    
     <div class="gsr-table-scroller">
-
         <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
-
-      
-
-        <div *ngIf="columnHeaderInfo.level == 1">
+        <ng-container *ngIf="columnHeaderInfo.levelDecider">
+         <div *ngIf="columnHeaderInfo.level == 1">
             <gsr-row class="gsr-row" (click) = "changeTable(columnHeaderInfo.level)" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
             <div *ngIf="records.length==0" class="noResults">No records found</div>
         </div> 
@@ -37,15 +17,30 @@
                 <div  class="gsr-column companyColumns"><span attr.level="{{columnHeaderInfo.level}}" attr.index="{{in}}" class="iconStyle expand"></span><span>{{company.company}}</span></div>
             </div>
         </div> 
-
-
-        <div *ngIf="columnHeaderInfo.level == 3">
+         <div *ngIf="columnHeaderInfo.level == 3">
             <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level)">
                  <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj.companies[recIndex].company}}</span></div>
             </div>
             <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
             <div *ngIf="records.length==0" class="noResults">No records found</div>
         </div> 
+        </ng-container>
+
+        <ng-container *ngIf="!columnHeaderInfo.levelDecider">
+                <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+                <div *ngIf="records.length==0" class="noResults">No records found</div>
+        </ng-container>
+
+        <!-- <div class="gsr-table-scroller">
+                <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+                <gsr-table-level-decider *ngIf="columnHeaderInfo.levelDecider" (sendLevel2) = "levelDtls=$event" [showFilter] ="showFilter"  [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo" ></gsr-table-level-decider>
+                <ng-container *ngIf="!columnHeaderInfo.levelDecider">
+                        <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+                        <div *ngIf="records.length==0" class="noResults">No records found</div>
+                </ng-container>
+            </div> -->
+
+
 
        
     </div>

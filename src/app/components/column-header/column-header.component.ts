@@ -18,7 +18,7 @@ export class ColumnHeaderComponent implements OnInit {
   columns:any;
   recIndex:any;
   ngOnInit() {
-    debugger;
+    
     this.columns = this.columnHeaderInfo['columnHeaders'];
     this.recIndex = this.columnHeaderInfo['index'];
     if(this.columnHeaderInfo.level == 1)
@@ -28,7 +28,7 @@ export class ColumnHeaderComponent implements OnInit {
   }
 
     filterColumn() {
-      debugger; 
+      
     this.records = this.originalRecords;
     let filterColumn = [];
    // this.cdr.detectChanges();

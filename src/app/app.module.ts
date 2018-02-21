@@ -14,6 +14,9 @@ import { ModalComponent } from './components/modal/modal.component';
 import { GsrRowComponent } from './components/gsr-row/gsr-row.component';
 import { ColumnHeaderComponent } from './components/column-header/column-header.component';
 import { GsrTableComponent } from './components/gsr-table/gsr-table.component';
+import { GsrTabsComponent } from './components/gsr-tabs/gsr-tabs.component';
+import { GsrTableLevelDeciderComponent } from './components/gsr-table-level-decider/gsr-table-level-decider.component';
+import { GsrTableHeaderComponent } from './components/gsr-table-header/gsr-table-header.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { GsrTableComponent } from './components/gsr-table/gsr-table.component';
     GsrRowComponent,
     ColumnHeaderComponent,
     GsrTableComponent,
+    GsrTabsComponent,
+    GsrTableLevelDeciderComponent,
+    GsrTableHeaderComponent,
   ],
   imports: [
     BrowserModule,

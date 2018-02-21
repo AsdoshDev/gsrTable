@@ -104,31 +104,10 @@ body, html {
 	top:2px;
 }
 
-/* 
-.columnWrapper:nth-child(even){
-	background-color: white;
-	
-
-}
-
-
-.columnWrapper:nth-child(odd){
-	background-color: rgb(247, 247, 247);
-	
-
-} */
-
-
-
-
-
-
-
-
 
 
 .columnWrapper:nth-child(4n+1),.columnWrapper:nth-child(4n+2) {
-	background-color: #f7f7f7;
+	background-color: #ececec;
   }
 
   .columnWrapper:nth-child(4n+3),.columnWrapper:nth-child(4n+4) {
