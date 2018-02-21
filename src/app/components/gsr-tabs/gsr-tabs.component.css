@@ -81,4 +81,9 @@
   .tab-content{
       margin-top:20px;
   }
+
+  .details-pane{
+      max-height:200px;
+      margin:20px;
+  }
   
